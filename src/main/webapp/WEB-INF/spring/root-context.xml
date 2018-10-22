@@ -12,9 +12,7 @@
 		base-package="org.zerock.sample">
 	</context:component-scan>
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<!-- <property name="driverClassName" 
-		value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property> -->
+
 		<property name="driverClassName"
 			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="jdbcUrl"
@@ -22,11 +20,9 @@
 		<property name="username" value="jspexam"></property>
 		<property name="password" value="m1234"></property>
 	</bean>
-<!-- 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		
-		<property name="username" value="jspexam"></property>
-		<property name="password" value="m1234"></property>
-	</bean> -->
+	<!-- <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig"> <property 
+		name="username" value="jspexam"></property> <property name="password" value="m1234"></property> 
+		</bean> -->
 
 	<!-- HikariCP configuration -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
