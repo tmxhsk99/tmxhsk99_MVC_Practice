@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
 
 import lombok.Setter;
@@ -24,5 +25,28 @@ public class BoardServiceTests {
 		//boardService 객체가 제대로 주입가능한지 확인하는 코드 
 		log.info(service);
 		assertNotNull(service);
+	}
+	@Test
+	public void testGetList() {
+	 service.getList().forEach(board -> log.info(board));
+	}
+	@Test
+	public void testGet() {
+		log.info(service.get(1741L));
+		
+	}
+	@Test
+	public void testUpdate() {
+		BoardVO board =service.get(1743L);
+		if(board == null) {
+			return;
+		}
+		board.setTitle("제목 수정합니다.");
+		log.info("modify result :"+ service.modify(board));
+	}
+	@Test
+	public void testDelete() {
+		//게시물 번호의 존재 여브를 확인하고 테스트 할것 
+		log.info("REMOVE RESULT:"+ service.remove(1742L));
 	}
 }
