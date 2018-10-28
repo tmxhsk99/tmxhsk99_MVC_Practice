@@ -50,4 +50,20 @@ public class BoardController {
 		}
 		return "redirect:/board/list";
 	}
+	@GetMapping("/register")
+	public void register(BoardVO board) {
+	
+	}
+	@PostMapping("/register")
+	public String register(BoardVO board, RedirectAttributes rttr) {
+
+		log.info("register: " + board);
+
+		service.register(board);
+
+		rttr.addFlashAttribute("result", board.getBno());
+
+		return "redirect:/board/list";
+	}
+	
 }
