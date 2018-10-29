@@ -21,11 +21,11 @@
 
 				checkModal(result);
 
-				history.replaceState({}, null, null);
+				
 
 				function checkModal(result) {
 
-					if (result === '' || history.state) {
+					if (result === '') {
 						return;
 					}
 
