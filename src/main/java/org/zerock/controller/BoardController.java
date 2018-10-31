@@ -21,20 +21,20 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardController {
 	private BoardService service;
-	
+
 	@GetMapping("/list")
 	public void list(Model model) {
 		log.info("list");
 		model.addAttribute("list",service.getList());
 	}
-	@GetMapping("/get")
+	@GetMapping({"/get","/modify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		/*get 메서드에 bno값을 좀더 명시적으로 처리하는 @RequestParam을 이용해서 지정합니다 (파라미터이름과 변수이름을 기준으로 동작하기에 생략해도 무방)
 		 * 게시물 전달을위해 Model을 param으로 지정함*/
-		log.info("/get");
+		log.info("/get or modify");
 		model.addAttribute("board",service.get(bno));
 	}
-	@PostMapping
+	@PostMapping("/modify")
 	public String modify(BoardVO board, RedirectAttributes rttr) {
 		log.info("modify :" + board);
 		if(service.modify(board)) {
