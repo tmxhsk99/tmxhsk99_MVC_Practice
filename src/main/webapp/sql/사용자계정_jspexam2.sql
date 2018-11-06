@@ -19,3 +19,7 @@ commit;
 select * from tbl_board;
 select * from tbl_board where bno > 0;
 select seq_board.nextval from dual;
+select * from tbl_board order by bno desc;--order by ¸¦ »ç¿ë
+select /*+index_desc (tbl_board pk_board)*/* from tbl_board;
+insert into tbl_board(bno,title,content,writer)
+(select seq_board.nextval,title,content,writer from tbl_board);

@@ -101,20 +101,8 @@
 				formObj.attr("action", "/board/remove");
 
 			} else if (operation === 'list') {
-				//move to list
-				formObj.attr("action", "/board/list").attr("method", "get");
-
-				var pageNumTag = $("input[name='pageNum']").clone();
-				var amountTag = $("input[name='amount']").clone();
-				var keywordTag = $("input[name='keyword']").clone();
-				var typeTag = $("input[name='type']").clone();
-
+				formObj.attr("action","/board/list").attr("method","get");
 				formObj.empty();
-
-				formObj.append(pageNumTag);
-				formObj.append(amountTag);
-				formObj.append(keywordTag);
-				formObj.append(typeTag);
 			}
 
 			formObj.submit();
